@@ -1,5 +1,9 @@
 # miaou.mastodon
+
 Mastodon boxing for Miaou
+
+[![Chat on Miaou](https://dystroy.org/miaou/static/shields/room-fr.svg?v=1)](https://dystroy.org/miaou/3?Code_Croissants)
+[![Chat on Miaou](https://dystroy.org/miaou/static/shields/room-en.svg?v=1)](https://dystroy.org/miaou/1?Miaou)
 
 ## What it does
 
