@@ -13,8 +13,19 @@ A toot URL in a Miaou message is replaced with a rendering of that toot:
 
 ## How it works
 
-When the Miaou boxer sees a message containing what looks like a toot URL, it sends a HEAD request to that URL.
-
-If a `link` header of type `application/atom+xml` can be found in the answer, that new URI is requested.
+The rendering is built using the Atom XML page.
 
 The resulting XML is rendered in HTML and this HTML is sent to all browsers rendering the Miaou message.
+
+Determining the URL of this Atom page depends on the URL format:
+
+### Remote Mastodon Instances
+
+When the toot URL is in the format `https://<domain>/users/<user>/updates/<num>`, the boxer just adds `.atom`.
+
+### Local Mastodon Instance
+
+When the toot URL is in the format `https://<domain>/@<user>/<num>`, then the `<num>` isn't the right one.
+
+In such a case the boxer sends a HEAD request to that URL and looks for the `link` header of type `application/atom+xml` which can be found in the answer.
+
