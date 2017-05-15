@@ -27,7 +27,12 @@ function resolveLocalTootURL(line, host, author, num){
 			var m = linkHeader.match(/<([^ >]+)>;.*;\s*type="?application\/atom\+xml"?/);
 			if (!m) return reject(new Error("No match in link header"));
 			resolve(m[1]);
-		}).end();
+		})
+		.on("error", e => {
+			console.log('e:', e);
+			reject(e);
+		})
+		.end();
 	});
 }
 
